@@ -12,29 +12,24 @@ export default function PostDetail({ posts }) {
 
   return (
     <>
-     
-        <>
-          <div>
-            <img src={post.thumbnailUrl} alt={post.title} />
-          </div>
+      <div>
+        <img src={post.thumbnailUrl} alt={post.title} />
+      </div>
 
-          <div className={styles['flex-row']}>
-            <p>{post.createdAt}</p>
-            <div className={styles['category-flex-row']}>
-              {post.categories.map((categorie, index) => (
-                <span key={index} className={styles['category-tag']}>
-                  {categorie}
-                </span>
-              ))}
-            </div>
-          </div>
+      <div className={styles['flex-row']}>
+        <p>{post.createdAt}</p>
+        <div className={styles['category-flex-row']}>
+          {post.categories.map((categorie, index) => (
+            <span key={index} className={styles['category-tag']}>
+              {categorie}
+            </span>
+          ))}
+        </div>
+      </div>
 
-          <h2>{post.title}</h2>
+      <h2>{post.title}</h2>
 
-          <div
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
-        </>
+      <div dangerouslySetInnerHTML={{ __html: post.content }}/>
     </>
   );
 }
