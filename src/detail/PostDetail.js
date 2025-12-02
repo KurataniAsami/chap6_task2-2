@@ -6,20 +6,13 @@ export default function PostDetail({ posts }) {
   const { id } = useParams(); 
   const post = posts.find((post) => post.id.toString() === id);
 
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setLoading(false);
-  }, []);
-
   if (!post) {
     return <h1>記事が見つかりません</h1>;
   }
 
   return (
     <>
-      {loading ? (
-        <h1>loading</h1>
-      ) : (
+     
         <>
           <div>
             <img src={post.thumbnailUrl} alt={post.title} />
@@ -42,7 +35,6 @@ export default function PostDetail({ posts }) {
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </>
-      )}
     </>
   );
 }
